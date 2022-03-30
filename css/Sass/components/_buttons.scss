@@ -1,0 +1,43 @@
+%button {
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 10px 20px;
+  color: white;
+  transition: 0.2s;
+  cursor: pointer;
+  margin: 0 auto;
+  font: {
+    size: 18px;
+    weight: 700;
+  }
+}
+
+.toggle-btn {
+  border: none;
+  background-color: $second-color;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  position: absolute;
+  &:hover {
+    span:nth-child(2) {
+      width: 30px;
+    }
+  }
+  display: none;
+  @media ($max-mobile) {
+    display: block;
+  }
+  span {
+    display: block;
+    background-color: black;
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    transition: 0.3s;
+    &:nth-child(2) {
+      width: 20px;
+    }
+  }
+}
