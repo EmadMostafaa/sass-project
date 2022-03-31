@@ -87,7 +87,7 @@ ol {
   position: absolute;
   width: 210px;
   height: 20px;
-  background: transparent url("./imgs/devider.png") no-repeat scroll;
+  background: transparent url("../imgs/devider.png") no-repeat scroll;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
