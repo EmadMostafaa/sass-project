@@ -1,0 +1,49 @@
+//media query
+$max-mobile: "max-width: 767px";
+$min-small: "min-width: 768px";
+$max-small: "max-width: 991px";
+$min-medium: "min-width: 992px";
+$max-medium: "max-width: 1199px";
+$min-large: "min-width: 1200px";
+
+//colors
+$main-color: #588eca;
+$second-color: #f0c320;
+$third-color: #f64069;
+$writing-color: #cccccc;
+$hover-color: #f66006;
+$grey-color: #999;
+$special-H-margin: 70px auto 40px;
+
+//margin
+$main-margin: 70px;
+
+// float by flex
+$float-left: flex-start;
+$float-right: flex-end;
+
+%before-after-vertical {
+  position: absolute;
+  content: "";
+  background-color: #d9d9d9;
+}
+
+%bullets {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    // background-color: $grey-color;
+    // &.active,
+    // &:hover {
+    //   background-color: white;
+    // }
+  }
+}
