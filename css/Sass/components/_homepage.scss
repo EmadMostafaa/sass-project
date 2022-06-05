@@ -1,0 +1,508 @@
+// .product {
+//   background-color: #eee;
+//   padding: 10px;
+//   border: 1px solid #ccc;
+//   width: 300px;
+//   height: 150px;
+//   position: relative;
+//   &::before {
+//     @include overlay;
+//     background-color: #ed143d52;
+//   }
+//   box-shadow: 10px 10px 10px #ccc;
+//   animation: fadeInOut 2s infinite linear; //add the animation to the element
+// }
+
+// // including animation mixin and add its @content
+// @include keyFr(fadeInOut) {
+//   0% {
+//     opacity: 0.7;
+//   }
+//   50% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 0.7;
+//   }
+// }
+
+// start slider
+.slider {
+  position: relative;
+  top: -3px;
+  width: 100%;
+  .img-container {
+    position: relative;
+    img {
+      width: 100%;
+    }
+    .bullets {
+      display: flex;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 10%;
+      li {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid white;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: 0.4s;
+        &.active,
+        &:hover {
+          background-color: $second-color;
+        }
+      }
+    }
+  }
+  .fa-circle-chevron-right,
+  .fa-circle-chevron-left {
+    font-size: 40px;
+    position: absolute;
+    top: 30%;
+    color: white;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      font-size: 50px;
+      color: $second-color;
+    }
+  }
+  .fa-circle-chevron-right {
+    right: 15px;
+  }
+  .fa-circle-chevron-left {
+    left: 15px;
+  }
+
+  .outer-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    margin-top: -80px;
+    .product {
+      height: 205px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      &:hover img {
+        transform: scale(1.1);
+      }
+      &:hover .text1 {
+        color: black;
+      }
+      &:hover .text1::before {
+        background-color: black;
+      }
+
+      .text1 {
+        z-index: 1;
+        font: {
+          size: 30px;
+          weight: 500;
+        }
+        white-space: nowrap;
+        color: white;
+        transition: 0.3s;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -13px;
+        text-transform: capitalize;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 80px;
+          height: 1px;
+          background-color: white;
+          top: 40px;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: 0.3s;
+        }
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        transition: 0.3s;
+        position: relative;
+      }
+    }
+  }
+}
+// end slider
+
+// start our blog
+.our-blog {
+  font-style: italic;
+  .blog-container {
+    display: flex;
+    margin: 70px 0;
+    .blog-box {
+      &:nth-child(2) {
+        padding: 0 70px;
+        &::before {
+          @extend %before-after-vertical;
+          width: 1px;
+          height: 50%;
+          left: 30%;
+          top: 50%;
+        }
+        &::after {
+          @extend %before-after-vertical;
+          width: 1px;
+          height: 50%;
+          left: 65%;
+          top: 50%;
+        }
+      }
+      .blog-title {
+        text-transform: uppercase;
+        i {
+          margin-right: 20px;
+          font-size: 30px;
+          color: $hover-color;
+          position: relative;
+          top: 3px;
+        }
+      }
+      .blog-desc {
+        color: $grey-color;
+        line-height: 1.5;
+      }
+      .link {
+        color: $hover-color;
+      }
+    }
+  }
+}
+
+// end our blog
+
+// start top-products
+.top-products {
+  margin-bottom: $main-margin;
+  .sorting {
+    display: flex;
+    justify-content: center;
+    margin: $main-margin 0;
+    .sort {
+      padding: 10px 20px;
+      border: 1px solid #d6d6d6;
+      margin: 0 10px;
+      color: $grey-color;
+      transition: 0.2s;
+      cursor: pointer;
+      font: {
+        size: 20px;
+        weight: 700;
+      }
+      &:hover,
+      &.active {
+        background-color: $hover-color;
+        color: white;
+        border: 1px solid $hover-color;
+      }
+    }
+  }
+  .main-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .product-box {
+      border: 1px solid #e5eaef;
+      text-align: center;
+      width: calc(25% - 20px);
+      margin-bottom: 30px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      &:hover .cart {
+        visibility: visible;
+      }
+      &:hover img {
+        transform: scale(1.1);
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        transition: 0.3s;
+        margin-bottom: 10px;
+      }
+      .cart {
+        @extend %button;
+        width: 50%;
+        visibility: hidden;
+        background-color: $hover-color;
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
+      h3 {
+        color: $grey-color;
+      }
+      p {
+        color: $hover-color;
+        font-weight: 600;
+      }
+    }
+  }
+}
+// end top-products
+
+// start testimon
+.testimon {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("/imgs/peakpx.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  height: 600px;
+  margin-bottom: $main-margin;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0000008f;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+  q {
+    color: white;
+    width: 50%;
+    margin: 0 auto;
+    line-height: 1.5;
+    font: {
+      size: 16px;
+      weight: 500;
+    }
+    position: relative;
+    border-radius: 4px;
+  }
+  p {
+    position: relative;
+    color: white;
+    font: {
+      size: 22px;
+      weight: 400;
+      style: normal;
+    }
+    span {
+      font-size: 16px;
+    }
+  }
+  .bullets-2 {
+    @extend %bullets;
+    bottom: 135px;
+    li {
+      background-color: $grey-color;
+      &.active,
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+}
+// end testimon
+
+// start kitchen
+.kitchen {
+  margin-bottom: $main-margin;
+  .outer-kitchen {
+    display: flex;
+    justify-content: center;
+    height: 210px;
+    margin-top: $main-margin;
+    position: relative;
+    .fa-circle-chevron-right,
+    .fa-circle-chevron-left {
+      font-size: 40px;
+      position: absolute;
+      top: 50%;
+      color: $hover-color;
+      transform: translateY(-50%);
+      cursor: pointer;
+      transition: 0.3s;
+      visibility: hidden;
+      &:hover {
+        color: $second-color;
+      }
+    }
+    .fa-circle-chevron-right {
+      right: -50px;
+      z-index: 1;
+    }
+    .fa-circle-chevron-left {
+      z-index: 1;
+      left: -50px;
+    }
+    .inner-kitchen {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+      cursor: pointer;
+      &:hover img {
+        transform: scale(1.1);
+      }
+      &:hover .floating1 {
+        visibility: visible;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        transition: 0.3s;
+      }
+      .floating1 {
+        background-color: $second-color;
+        position: absolute;
+        width: 65%;
+        text-align: center;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        visibility: hidden;
+        h3 {
+          &:hover {
+            color: $hover-color;
+          }
+        }
+      }
+    }
+  }
+  &:hover .fa-circle-chevron-left {
+    visibility: visible;
+  }
+  &:hover .fa-circle-chevron-right {
+    visibility: visible;
+  }
+}
+// end kitchen
+
+// start best sellers
+.best-sellers {
+  margin-bottom: $main-margin;
+  .main-offers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 25px;
+    margin-top: $main-margin;
+    .winter {
+      // grid-area: 1/1/3/2;
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      img {
+        max-height: 100%;
+      }
+    }
+    .best {
+      height: 150px;
+      background-color: #efefef;
+      display: flex;
+      cursor: pointer;
+      img {
+        max-height: 100%;
+        margin: 20px 20px;
+      }
+      .desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        h4 {
+          margin: 0;
+          color: $grey-color;
+        }
+        p {
+          margin: 0;
+          font-weight: 700;
+          color: $hover-color;
+        }
+        span {
+          font-weight: 500;
+          text-decoration: line-through;
+          color: $grey-color;
+          font-weight: 500;
+          margin-top: 10px;
+        }
+      }
+      &:hover h4 {
+        color: black;
+      }
+    }
+  }
+}
+// end best sellers
+
+// start logos
+.logos {
+  margin: $main-margin 0 ($main-margin + 50px);
+  position: relative;
+  .fa-circle-chevron-right,
+  .fa-circle-chevron-left {
+    display: none;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    color: $hover-color;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      color: $second-color;
+    }
+  }
+  &:hover .fa-circle-chevron-right {
+    display: block;
+  }
+  &:hover .fa-circle-chevron-left {
+    display: block;
+  }
+  .fa-circle-chevron-right {
+    right: -50px;
+  }
+  .fa-circle-chevron-left {
+    left: -50px;
+  }
+  .main-logos {
+    display: flex;
+    justify-content: space-between;
+    img {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+}
+// end logos
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f6f6f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $second-color;
+  border-radius: 20px;
+  &:hover {
+    background-color: #f0c320a8;
+  }
+}

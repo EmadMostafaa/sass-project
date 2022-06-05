@@ -1,0 +1,62 @@
+body {
+  background-color: white;
+  text-transform: capitalize;
+  font: {
+    family: "Roboto", sans-serif;
+    style: italic;
+    size: 16px;
+  }
+}
+
+.container {
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  @media ($min-small) {
+    width: 750px;
+  }
+  @media ($min-medium) {
+    width: 970px;
+  }
+  @media ($min-large) {
+    width: 1170px;
+  }
+}
+
+// global rules
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+// start special header
+.special-header {
+  margin: $special-H-margin;
+  text-align: center;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 20px;
+    background: transparent url("/imgs/devider.png") no-repeat scroll;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+  }
+}
+// end special header
