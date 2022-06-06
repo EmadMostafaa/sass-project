@@ -87,7 +87,7 @@ ol {
   position: absolute;
   width: 210px;
   height: 20px;
-  background: transparent url("./imgs/devider.png") no-repeat scroll;
+  background: transparent url("../imgs/devider.png") no-repeat scroll;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -96,7 +96,7 @@ ol {
 
 .header {
   position: relative;
-  background-image: url("./imgs/slider.jpg");
+  background-image: url("../imgs/slider.jpg");
 }
 
 .header .container {
@@ -113,7 +113,7 @@ ol {
 }
 
 .header .container::after {
-  background-image: url("./imgs/headerbg.png");
+  background-image: url("../imgs/headerbg.png");
   background-repeat: no-repeat;
   background-color: transparent;
   width: 100%;
